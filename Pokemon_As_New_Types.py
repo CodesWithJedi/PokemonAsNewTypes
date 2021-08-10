@@ -1,18 +1,15 @@
 import pygame
-import pyttsx3
 from pygame import mixer
 from pygame.locals import *
 import random
 from os import path
 import os
+from button import Button
 
-#Inits
+#Initialization
 pygame.mixer.pre_init(44100, -16, 2, 512)
 mixer.init()
 pygame.init()
-Talk = pyttsx3.init()
-
-Dark_Cyan = (0, 144, 144)
 
 #Game Variables
 Position = pygame.mouse.get_pos()
@@ -31,9 +28,6 @@ screen.fill(Bg)
 Theme = pygame.mixer.Sound('Theme.wav')
 Theme.set_volume(0.5)
 #Pokemon
-
-if Pokemon == 133:
-	Pokemon == random.randint(1, 151)
 
 #Extra
 Plus = pygame.image.load('Other/Plus.png').convert_alpha()
@@ -213,539 +207,536 @@ Dragonite = pygame.image.load('Pokemon/149.png')
 Mewtwo = pygame.image.load('Pokemon/150.png')
 Mew = pygame.image.load('Pokemon/151.png')
 
-#Mega If Statements
-if Kinds == 1:
-	screen.blit(Grass, (700, 350))
-	Type = "Grass"
-elif Kinds == 2:
-	Type = "Fire"
-	screen.blit(Fire, (650, 350))
-elif Kinds == 3:
-	Type = "Water"
-	screen.blit(Water, (600, 350))
-elif Kinds == 4:
-	Type = "Electric"
-	screen.blit(Electric, (700, 350))
-elif Kinds == 5:
-	Type = "Fairy"
-	screen.blit(Fairy, (700, 350))
-elif Kinds == 6:
-	Type = "Fighting"
-	screen.blit(Fighting, (700, 350))
-elif Kinds == 7:
-	Type = "Normal"
-	screen.blit(Normal, (700, 350))
-elif Kinds == 8:
-	Type = "Psychic"
-	screen.blit(Psychic, (700, 350))
-elif Kinds == 9:
-	Type = "Dark"
-	screen.blit(Dark, (700, 350))
-elif Kinds == 10:
-	Type = "Dragon"
-	screen.blit(Dragon, (700, 350))
-elif Kinds == 11:
-	Type = "Bug"
-	screen.blit(Bugs, (700, 350))
-elif Kinds == 12:
-	Type = "Flying"
-	screen.blit(Flying, (700, 350))
-elif Kinds == 13:
-	Type = "Ghost"
-	screen.blit(Ghost, (700, 350))
-elif Kinds == 14:
-	Type = "Ground"
-	screen.blit(Ground, (700, 350))
-elif Kinds == 15:
-	Type = "Ice"
-	screen.blit(Ice, (700, 350))
-elif Kinds == 16:
-	Type = "Poison"
-	screen.blit(Poison, (700, 350))
-elif Kinds == 17:
-	Type = "Rock"
-	screen.blit(Rock, (700, 350))
-elif Kinds == 18:
-	Type = "Steel"
-	screen.blit(Steel, (700, 350))
-#Another Mega If Statement
-if Pokemon == 1:
-	Name = "Bulbasaur"
-	screen.blit(Bulbasaur, (0, 175))
-elif Pokemon == 2:
-	Name = "Ivysaur"
-	screen.blit(Ivysaur, (0, 175))
-elif Pokemon == 3:
-	Name = "Venasaur"
-	screen.blit(Venasaur, (0, 175))
-elif Pokemon == 4:
-	Name = "Charmander"
-	screen.blit(Charmander, (0, 175))
-elif Pokemon == 5:
-	Name = "Charmeleon"
-	screen.blit(Charmeleon, (0, 175))
-elif Pokemon == 6:
-	Name = "Charizard"
-	screen.blit(Charizard, (0, 175))
-elif Pokemon == 7:
-	Name = "Squirtle"
-	screen.blit(Squirtle, (0, 175))
-elif Pokemon == 8:
-	Name = "Worturtle"
-	screen.blit(Wartortle, (0, 175))
-elif Pokemon == 9:
-	Name = "Blastoise"
-	screen.blit(Blastoise, (0, 175))
-elif Pokemon == 10:
-	Name = "Caterpy"
-	screen.blit(Caterpie, (0, 175))
-elif Pokemon == 11:
-	Name = "Mettapodd"
-	screen.blit(Metapod, (0, 175))
-elif Pokemon == 12:
-	Name = "Butterfree"
-	screen.blit(Butterfree, (0, 175))
-elif Pokemon == 13:
-	Name = "Weedle"
-	screen.blit(Weedle, (0, 175))
-elif Pokemon == 14:
-	Name = "Kakoona"
-	screen.blit(Kakuna, (0, 175))
-elif Pokemon == 15:
-	Name = "Beedrill"
-	screen.blit(Beedrill, (0, 175))
-elif Pokemon == 16:
-	Name = "Pidgey"
-	screen.blit(Pidgey, (0, 175))
-elif Pokemon == 17:
-	Name = "Pidgyotto"
-	screen.blit(Pidgeotto, (0, 175))
-elif Pokemon == 18:
-	Name = "Pidgyott"
-	screen.blit(Pidgeot, (0, 175))
-elif Pokemon == 19:
-	Name = "Rattatta"
-	screen.blit(Rattatta, (0, 175))
-elif Pokemon == 20:
-	Name = "Ratticate"
-	screen.blit(Ratticate, (0, 175))
-elif Pokemon == 21:
-	Name = "Spearow"
-	screen.blit(Spearow, (0, 175))
-elif Pokemon == 22:
-	Name = "Fearow"
-	screen.blit(Fearow, (0, 175))
-elif Pokemon == 23:
-	Name = "Ekans"
-	screen.blit(Ekans, (0, 175))
-elif Pokemon == 24:
-	Name = "Arbok"
-	screen.blit(Arbok, (0, 175))
-elif Pokemon == 25:
-	Name = "Pikachu"
-	screen.blit(Pikachu, (0, 175))
-elif Pokemon == 26:
-	Name = "Raichu"
-	screen.blit(Raichu, (20, 175))
-elif Pokemon == 27:
-	Name = "Sandshrew"
-	screen.blit(Sandshrew, (0, 175))
-elif Pokemon == 28:
-	Name = "Sandslash"
-	screen.blit(Sandslash, (0, 175))
-elif Pokemon == 29:
-	Name = "Nidorian Female"
-	screen.blit(Nidorian1, (0, 175))
-elif Pokemon == 30:
-	Name = "Nidorina"
-	screen.blit(Nidorina, (0, 175))
-elif Pokemon == 31:
-	Name = "Nidoqueen"
-	screen.blit(Nidoqueen, (0, 175))
-elif Pokemon == 32:
-	Name = "Nidorian Male"
-	screen.blit(Nidorian2, (0, 175))
-elif Pokemon == 33:
-	Name = "Nidorino"
-	screen.blit(Nidorino, (0, 175))
-elif Pokemon == 34:
-	Name = "Nidoking"
-	screen.blit(Nidoking, (0, 175))
-elif Pokemon == 35:
-	Name = "Clefairy"
-	screen.blit(Clefairy, (0, 175))
-elif Pokemon == 36:
-	Name = "Clefable"
-	screen.blit(Clefable, (0, 175))
-elif Pokemon == 37:
-	Name = "Vulpix"
-	screen.blit(Vulpix, (0, 175))
-elif Pokemon == 38:
-	Name = "Ninetails"
-	screen.blit(Ninetails, (0, 175))
-elif Pokemon == 39:
-	Name = "Jigglypuff"
-	screen.blit(Jigglypuff, (0, 175))
-elif Pokemon == 40:
-	Name = "Wigglytuff"
-	screen.blit(Wigglytuff, (0, 175))
-elif Pokemon == 41:
-	Name = "Zubat"
-	screen.blit(Zubat, (0, 175))
-elif Pokemon == 42:
-	Name = "Golbat"
-	screen.blit(Golbat, (0, 175))
-elif Pokemon == 43:
-	Name = "Oddish"
-	screen.blit(Oddish, (0, 175))
-elif Pokemon == 44:
-	Name = "Gloom"
-	screen.blit(Gloom, (0, 175))
-elif Pokemon == 45:
-	Name = "Vileplume"
-	screen.blit(Vileplume, (0, 175))
-elif Pokemon == 46:
-	Name = "Paras"
-	screen.blit(Paras, (0, 175))
-elif Pokemon == 47:
-	Name = "Parasect"
-	screen.blit(Parasect, (0, 175))
-elif Pokemon == 48:
-	Name = "Venonat"
-	screen.blit(Venonat, (0, 175))
-elif Pokemon == 49:
-	Name = "Venomoth"
-	screen.blit(Venomoth, (0, 175))
-elif Pokemon == 50:
-	Name = "Diglitt"
-	screen.blit(Diglett, (0, 175))
-elif Pokemon == 51:
-	Name = "Dugtrio"
-	screen.blit(Dugtrio, (0, 175))
-elif Pokemon == 52:
-	Name = "Meowth"
-	screen.blit(Meowth, (0, 175))
-elif Pokemon == 53:
-	Name = "Persian"
-	screen.blit(Persian, (0, 175))
-elif Pokemon == 54:
-	Name = "Iduck"
-	screen.blit(Psyduck, (0, 175))
-elif Pokemon == 55:
-	Name = "Golduck"
-	screen.blit(Golduck, (0, 175))
-elif Pokemon == 56:
-	Name = "Mankey"
-	screen.blit(Mankey, (0, 175))
-elif Pokemon == 57:
-	Name = "Primeape"
-	screen.blit(Primeape, (0, 175))
-elif Pokemon == 58:
-	Name = "Growlithe"
-	screen.blit(Growlithe, (0, 175))
-elif Pokemon == 59:
-	Name = "Arcanine"
-	screen.blit(Arcanine, (0, 175))
-elif Pokemon == 60:
-	Name = "Polywag"
-	screen.blit(Poliwag, (0, 175))
-elif Pokemon == 61:
-	Name = "Polywhirl"
-	screen.blit(Poliwhirl, (0, 175))
-elif Pokemon == 62:
-	Name = "Polywrath"
-	screen.blit(Poliwrath, (0, 175))
-elif Pokemon == 63:
-	Name = "Abra"
-	screen.blit(Abra, (0, 175))
-elif Pokemon == 64:
-	Name = "Kadabra"
-	screen.blit(Kadabra, (0, 175))
-elif Pokemon == 65:
-	Name = "Alakazam"
-	screen.blit(Alakazam, (0, 175))
-elif Pokemon == 66:
-	Name = "Machop"
-	screen.blit(Machop, (0, 175))
-elif Pokemon == 67:
-	Name = "Machoke"
-	screen.blit(Machoke, (0, 175))
-elif Pokemon == 68:
-	Name = "Machamp"
-	screen.blit(Machamp, (0, 175))
-elif Pokemon == 69:
-	Name = "Bellsprout"
-	screen.blit(Bellsprout, (0, 175))
-elif Pokemon == 70:
-	Name = "Weepinbell"
-	screen.blit(Weepinbell, (0, 175))
-elif Pokemon == 71:
-	Name = "Victreebel"
-	screen.blit(Victreebel, (0, 175))
-elif Pokemon == 72:
-	Name = "Tentacool"
-	screen.blit(Tentacool, (0, 175))
-elif Pokemon == 73:
-	Name = "Tentacruel"
-	screen.blit(Tentacruel, (0, 175))
-elif Pokemon == 74:
-	Name = "Geodude"
-	screen.blit(Geodude, (0, 175))
-elif Pokemon == 75:
-	Name = "Gravler"
-	screen.blit(Gravler, (0, 175))
-elif Pokemon == 76:
-	Name = "Golem"
-	screen.blit(Golem, (0, 175))
-elif Pokemon == 77:
-	Name = "Pontya"
-	screen.blit(Pontya, (0, 175))
-elif Pokemon == 78:
-	Name = "Rapidash"
-	screen.blit(Rapidash, (0, 175))
-elif Pokemon == 79:
-	Name = "Slowpoke"
-	screen.blit(Slowpoke, (0, 175))
-elif Pokemon == 80:
-	Name = "Slowbro"
-	screen.blit(Slowbro, (0, 175))
-elif Pokemon == 81:
-	Name = "Magnemite"
-	screen.blit(Magnemite, (0, 175))
-elif Pokemon == 82:
-	Name = "Magnetron"
-	screen.blit(Magnetron, (0, 175))
-elif Pokemon == 83:
-	Name = "Farfetched"
-	screen.blit(Farfetched, (0, 175))
-elif Pokemon == 84:
-	Name = "Doeduo"
-	screen.blit(Doduo, (0, 175))
-elif Pokemon == 85:
-	Name = "Doderio"
-	screen.blit(Dodrio, (0, 175))
-elif Pokemon == 86:
-	Name = "Seal"
-	screen.blit(Seal, (0, 175))
-elif Pokemon == 87:
-	Name = "Dewgong"
-	screen.blit(Dewgong, (0, 175))
-elif Pokemon == 88:
-	Name = "Griymer"
-	screen.blit(Grimer, (0, 175))
-elif Pokemon == 89:
-	Name = "Muck"
-	screen.blit(Muk, (0, 175))
-elif Pokemon == 90:
-	Name = "Shelder"
-	screen.blit(Shelder, (0, 175))
-elif Pokemon == 91:
-	Name = "Cloyster"
-	screen.blit(Cloyster, (0, 175))
-elif Pokemon == 92:
-	Name = "Gastly"
-	screen.blit(Gastly, (0, 175))
-elif Pokemon == 93:
-	Name = "Haunter"
-	screen.blit(Haunter, (0, 175))
-elif Pokemon == 94:
-	Name = "Gengar"
-	screen.blit(Gengar, (0, 175))
-elif Pokemon == 95:
-	Name = "Onix"
-	screen.blit(Onix, (0, 175))
-elif Pokemon == 96:
-	Name = "Drowzee"
-	screen.blit(Drowzee, (0, 175))
-elif Pokemon == 97:
-	Name = "Hypno"
-	screen.blit(Hypno, (0, 175))
-elif Pokemon == 98:
-	Name = "Krabby"
-	screen.blit(Krabby, (0, 175))
-elif Pokemon == 99:
-	Name = "Kingler"
-	screen.blit(Kingler, (0, 175))
-elif Pokemon == 100:
-	Name = "Voltorb"
-	screen.blit(Voltorb, (0, 175))
-elif Pokemon == 101:
-	Name = "Electrobe"
-	screen.blit(Electrobe, (0, 175))
-elif Pokemon == 102:
-	Name = "Exeggcute"
-	screen.blit(Exeggcute, (0, 175))
-elif Pokemon == 103:
-	Name = "Exeggcuteor"
-	screen.blit(Exeggutor, (0, 175))
-elif Pokemon == 104:
-	Name = "Cuebone"
-	screen.blit(Cubone, (0, 175))
-elif Pokemon == 105:
-	Name = "Marowak"
-	screen.blit(Marowak, (0, 175))
-elif Pokemon == 106:
-	Name = "Hitmonlee"
-	screen.blit(Hitmonlee, (0, 175))
-elif Pokemon == 107:
-	Name = "Hitmonechan"
-	screen.blit(Hitmonchan, (0, 175))
-elif Pokemon == 108:
-	Name = "Lickytongue"
-	screen.blit(Lickitung, (0, 175))
-elif Pokemon == 109:
-	Name = "Koffing"
-	screen.blit(Koffing, (0, 175))
-elif Pokemon == 110:
-	Name = "Weezing"
-	screen.blit(Weezing, (0, 175))
-elif Pokemon == 111:
-	Name = "Rhiydon"
-	screen.blit(Rhydon, (0, 175))
-elif Pokemon == 112:
-	Name = "Rhyhorn"
-	screen.blit(Rhyhorn, (0, 175))
-elif Pokemon == 113:
-	Name = "Chansey"
-	screen.blit(Chansey, (0, 175))
-elif Pokemon == 114:
-	Name = "Tangela"
-	screen.blit(Tangela, (0, 175))
-elif Pokemon == 115:
-	Name = "Kanghaskan"
-	screen.blit(Kangaskhan, (0, 175))
-elif Pokemon == 116:
-	Name = "Horsea"
-	screen.blit(Horsea, (0, 175))
-elif Pokemon == 117:
-	Name = "Sedra"
-	screen.blit(Sedra, (0, 175))
-elif Pokemon == 118:
-	Name = "Goldeen"
-	screen.blit(Goldeen, (0, 175))
-elif Pokemon == 119:
-	Name = "Seaking"
-	screen.blit(Seaking, (0, 175))
-elif Pokemon == 120:
-	Name = "Staryu"
-	screen.blit(Staryu, (0, 175))
-elif Pokemon == 121:
-	Name = "Starmie"
-	screen.blit(Starmie, (0, 175))
-elif Pokemon == 122:
-	Name = "Mister Mime"
-	screen.blit(Mr_Mime, (0, 175))
-elif Pokemon == 123:
-	Name = "Scyther"
-	screen.blit(Scyther, (0, 175))
-elif Pokemon == 124:
-	Name = "Jynx"
-	screen.blit(Jynx, (0, 175))
-elif Pokemon == 125:
-	Name = "Electabuzz"
-	screen.blit(Electabuzz, (0, 175))
-elif Pokemon == 126:
-	Name = "Magmar"
-	screen.blit(Magmar, (0, 175))
-elif Pokemon == 127:
-	Name = "Pinsir"
-	screen.blit(Pinsir, (0, 175))
-elif Pokemon == 128:
-	Name = "Tauros"
-	screen.blit(Tauros, (0, 175))
-elif Pokemon == 129:
-	Name = "Magykarp"
-	screen.blit(Magikarp, (0, 175))
-elif Pokemon == 130:
-	Name = "Garyadoose"
-	screen.blit(Garyados, (0, 175))
-elif Pokemon == 131:
-	Name = "Lapras"
-	screen.blit(Lapras, (0, 175))
-elif Pokemon == 132:
-	Name = "Ditto"
-	screen.blit(Ditto, (0, 175))
-elif Pokemon == 134:
-	Name = "Vaporeon"
-	screen.blit(Vaporeon, (0, 175))
-elif Pokemon == 135:
-	Name = "Jolteon"
-	screen.blit(Jolteon, (0, 175))
-elif Pokemon == 136:
-	Name = "Flareon"
-	screen.blit(Flareon, (0, 175))
-elif Pokemon == 137:
-	Name = "Porygon"
-	screen.blit(Porygon, (0, 175))
-elif Pokemon == 138:
-	Name = Omanyte
-	screen.blit(Omanyte, (0, 175))
-elif Pokemon == 139:
-	Name = "Omastar"
-	screen.blit(Omastar, (0, 175))
-elif Pokemon == 140:
-	Name = "Kabuto"
-	screen.blit(Kabuto, (0, 175))
-elif Pokemon == 141:
-	Name = "Kabutops"
-	screen.blit(Kabutops, (0, 175))
-elif Pokemon == 142:
-	Name = "Areodactyl"
-	screen.blit(Areodactyl, (0, 175))
-elif Pokemon == 143:
-	Name = "Snorelax"
-	screen.blit(Snorlax, (0, 175))
-elif Pokemon == 144:
-	Name = "Articunio"
-	screen.blit(Articuno, (0, 175))
-elif Pokemon == 145:
-	Name = "Zapdoes"
-	screen.blit(Zapdos, (0, 175))
-elif Pokemon == 146:
-	Name = "Moltress"
-	screen.blit(Moltress, (0, 175))
-elif Pokemon == 147:
-	Name = "Dratini"
-	screen.blit(Dratini, (0, 175))
-elif Pokemon == 148:
-	screen.blit(Dragonair, (0, 175))
-	Name = "Dragonair"
-elif Pokemon == 149:
-	screen.blit(Dragonite, (0, 175))
-	Name = "Drag oh nite"
-elif Pokemon == 150:
-	screen.blit(Mewtwo, (0, 175))
-	Name = "Mew2"
-elif Pokemon == 151:
-	screen.blit(Mew, (0, 175))
-	Name = "Mew"
-
-def draw_text(text, font, text_col, x, y):
-	img = font.render(text, True, text_col)
-	screen.blit(img, (x, y))
-
-
 #Lets blit some Extra stuff too First the Plus sign
 screen.blit(Plus, (550, 350))
 #Now the =
 screen.blit(Equals, (900, 350))
 #the ?
 screen.blit(Question, (1050, 350))
-#And Lastly the Restart
+#and lastly the restart button
 screen.blit(Restart, (10, 10))
-
-Info = Name, "as a", Type, "type"
-Info = str(Info)
-draw_text(Info, font, Dark_Cyan, 250, 700)
-
 #Sound
 Theme.play()
-# Talk.say(Info)
-
-Talk.runAndWait()
 run = True
+button = Button(10, 10, Restart, 2)
 while run:
 	Theme.play()
+	if button.draw(screen):
+		screen.fill(Bg)
+		screen.blit(Plus, (550, 350))
+		screen.blit(Equals, (900, 350))
+		screen.blit(Question, (1050, 350))
+		screen.blit(Restart, (10, 10))
+		Pokemon = random.randint(1, 151)
+		Kinds = random.randint(1, 18)
+	
+	#Mega If Statements
+	if Kinds == 1:
+		screen.blit(Grass, (700, 350))
+		Type = "Grass"
+	elif Kinds == 2:
+		Type = "Fire"
+		screen.blit(Fire, (650, 350))
+	elif Kinds == 3:
+		Type = "Water"
+		screen.blit(Water, (600, 350))
+	elif Kinds == 4:
+		Type = "Electric"
+		screen.blit(Electric, (700, 350))
+	elif Kinds == 5:
+		Type = "Fairy"
+		screen.blit(Fairy, (700, 350))
+	elif Kinds == 6:
+		Type = "Fighting"
+		screen.blit(Fighting, (700, 350))
+	elif Kinds == 7:
+		Type = "Normal"
+		screen.blit(Normal, (700, 350))
+	elif Kinds == 8:
+		Type = "Psychic"
+		screen.blit(Psychic, (700, 350))
+	elif Kinds == 9:
+		Type = "Dark"
+		screen.blit(Dark, (700, 350))
+	elif Kinds == 10:
+		Type = "Dragon"
+		screen.blit(Dragon, (700, 350))
+	elif Kinds == 11:
+		Type = "Bug"
+		screen.blit(Bugs, (700, 350))
+	elif Kinds == 12:
+		Type = "Flying"
+		screen.blit(Flying, (700, 350))
+	elif Kinds == 13:
+		Type = "Ghost"
+		screen.blit(Ghost, (700, 350))
+	elif Kinds == 14:
+		Type = "Ground"
+		screen.blit(Ground, (700, 350))
+	elif Kinds == 15:
+		Type = "Ice"
+		screen.blit(Ice, (700, 350))
+	elif Kinds == 16:
+		Type = "Poison"
+		screen.blit(Poison, (700, 350))
+	elif Kinds == 17:
+		Type = "Rock"
+		screen.blit(Rock, (700, 350))
+	elif Kinds == 18:
+		Type = "Steel"
+		screen.blit(Steel, (700, 350))
+	#Another Mega If Statement
+	if Pokemon == 1:
+		Name = "Bulbasaur"
+		screen.blit(Bulbasaur, (0, 175))
+	elif Pokemon == 2:
+		Name = "Ivysaur"
+		screen.blit(Ivysaur, (0, 175))
+	elif Pokemon == 3:
+		Name = "Venasaur"
+		screen.blit(Venasaur, (0, 175))
+	elif Pokemon == 4:
+		Name = "Charmander"
+		screen.blit(Charmander, (0, 175))
+	elif Pokemon == 5:
+		Name = "Charmeleon"
+		screen.blit(Charmeleon, (0, 175))
+	elif Pokemon == 6:
+		Name = "Charizard"
+		screen.blit(Charizard, (0, 175))
+	elif Pokemon == 7:
+		Name = "Squirtle"
+		screen.blit(Squirtle, (0, 175))
+	elif Pokemon == 8:
+		Name = "Worturtle"
+		screen.blit(Wartortle, (0, 175))
+	elif Pokemon == 9:
+		Name = "Blastoise"
+		screen.blit(Blastoise, (0, 175))
+	elif Pokemon == 10:
+		Name = "Caterpy"
+		screen.blit(Caterpie, (0, 175))
+	elif Pokemon == 11:
+		Name = "Mettapodd"
+		screen.blit(Metapod, (0, 175))
+	elif Pokemon == 12:
+		Name = "Butterfree"
+		screen.blit(Butterfree, (0, 175))
+	elif Pokemon == 13:
+		Name = "Weedle"
+		screen.blit(Weedle, (0, 175))
+	elif Pokemon == 14:
+		Name = "Kakoona"
+		screen.blit(Kakuna, (0, 175))
+	elif Pokemon == 15:
+		Name = "Beedrill"
+		screen.blit(Beedrill, (0, 175))
+	elif Pokemon == 16:
+		Name = "Pidgey"
+		screen.blit(Pidgey, (0, 175))
+	elif Pokemon == 17:
+		Name = "Pidgyotto"
+		screen.blit(Pidgeotto, (0, 175))
+	elif Pokemon == 18:
+		Name = "Pidgyott"
+		screen.blit(Pidgeot, (0, 175))
+	elif Pokemon == 19:
+		Name = "Rattatta"
+		screen.blit(Rattatta, (0, 175))
+	elif Pokemon == 20:
+		Name = "Ratticate"
+		screen.blit(Ratticate, (0, 175))
+	elif Pokemon == 21:
+		Name = "Spearow"
+		screen.blit(Spearow, (0, 175))
+	elif Pokemon == 22:
+		Name = "Fearow"
+		screen.blit(Fearow, (0, 175))
+	elif Pokemon == 23:
+		Name = "Ekans"
+		screen.blit(Ekans, (0, 175))
+	elif Pokemon == 24:
+		Name = "Arbok"
+		screen.blit(Arbok, (0, 175))
+	elif Pokemon == 25:
+		Name = "Pikachu"
+		screen.blit(Pikachu, (0, 175))
+	elif Pokemon == 26:
+		Name = "Raichu"
+		screen.blit(Raichu, (20, 175))
+	elif Pokemon == 27:
+		Name = "Sandshrew"
+		screen.blit(Sandshrew, (0, 175))
+	elif Pokemon == 28:
+		Name = "Sandslash"
+		screen.blit(Sandslash, (0, 175))
+	elif Pokemon == 29:
+		Name = "Nidorian Female"
+		screen.blit(Nidorian1, (0, 175))
+	elif Pokemon == 30:
+		Name = "Nidorina"
+		screen.blit(Nidorina, (0, 175))
+	elif Pokemon == 31:
+		Name = "Nidoqueen"
+		screen.blit(Nidoqueen, (0, 175))
+	elif Pokemon == 32:
+		Name = "Nidorian Male"
+		screen.blit(Nidorian2, (0, 175))
+	elif Pokemon == 33:
+		Name = "Nidorino"
+		screen.blit(Nidorino, (0, 175))
+	elif Pokemon == 34:
+		Name = "Nidoking"
+		screen.blit(Nidoking, (0, 175))
+	elif Pokemon == 35:
+		Name = "Clefairy"
+		screen.blit(Clefairy, (0, 175))
+	elif Pokemon == 36:
+		Name = "Clefable"
+		screen.blit(Clefable, (0, 175))
+	elif Pokemon == 37:
+		Name = "Vulpix"
+		screen.blit(Vulpix, (0, 175))
+	elif Pokemon == 38:
+		Name = "Ninetails"
+		screen.blit(Ninetails, (0, 175))
+	elif Pokemon == 39:
+		Name = "Jigglypuff"
+		screen.blit(Jigglypuff, (0, 175))
+	elif Pokemon == 40:
+		Name = "Wigglytuff"
+		screen.blit(Wigglytuff, (0, 175))
+	elif Pokemon == 41:
+		Name = "Zubat"
+		screen.blit(Zubat, (0, 175))
+	elif Pokemon == 42:
+		Name = "Golbat"
+		screen.blit(Golbat, (0, 175))
+	elif Pokemon == 43:
+		Name = "Oddish"
+		screen.blit(Oddish, (0, 175))
+	elif Pokemon == 44:
+		Name = "Gloom"
+		screen.blit(Gloom, (0, 175))
+	elif Pokemon == 45:
+		Name = "Vileplume"
+		screen.blit(Vileplume, (0, 175))
+	elif Pokemon == 46:
+		Name = "Paras"
+		screen.blit(Paras, (0, 175))
+	elif Pokemon == 47:
+		Name = "Parasect"
+		screen.blit(Parasect, (0, 175))
+	elif Pokemon == 48:
+		Name = "Venonat"
+		screen.blit(Venonat, (0, 175))
+	elif Pokemon == 49:
+		Name = "Venomoth"
+		screen.blit(Venomoth, (0, 175))
+	elif Pokemon == 50:
+		Name = "Diglitt"
+		screen.blit(Diglett, (0, 175))
+	elif Pokemon == 51:
+		Name = "Dugtrio"
+		screen.blit(Dugtrio, (0, 175))
+	elif Pokemon == 52:
+		Name = "Meowth"
+		screen.blit(Meowth, (0, 175))
+	elif Pokemon == 53:
+		Name = "Persian"
+		screen.blit(Persian, (0, 175))
+	elif Pokemon == 54:
+		Name = "Psyduck"
+		screen.blit(Psyduck, (0, 175))
+	elif Pokemon == 55:
+		Name = "Golduck"
+		screen.blit(Golduck, (0, 175))
+	elif Pokemon == 56:
+		Name = "Mankey"
+		screen.blit(Mankey, (0, 175))
+	elif Pokemon == 57:
+		Name = "Primeape"
+		screen.blit(Primeape, (0, 175))
+	elif Pokemon == 58:
+		Name = "Growlithe"
+		screen.blit(Growlithe, (0, 175))
+	elif Pokemon == 59:
+		Name = "Arcanine"
+		screen.blit(Arcanine, (0, 175))
+	elif Pokemon == 60:
+		Name = "Polywag"
+		screen.blit(Poliwag, (0, 175))
+	elif Pokemon == 61:
+		Name = "Polywhirl"
+		screen.blit(Poliwhirl, (0, 175))
+	elif Pokemon == 62:
+		Name = "Polywrath"
+		screen.blit(Poliwrath, (0, 175))
+	elif Pokemon == 63:
+		Name = "Abra"
+		screen.blit(Abra, (0, 175))
+	elif Pokemon == 64:
+		Name = "Kadabra"
+		screen.blit(Kadabra, (0, 175))
+	elif Pokemon == 65:
+		Name = "Alakazam"
+		screen.blit(Alakazam, (0, 175))
+	elif Pokemon == 66:
+		Name = "Machop"
+		screen.blit(Machop, (0, 175))
+	elif Pokemon == 67:
+		Name = "Machoke"
+		screen.blit(Machoke, (0, 175))
+	elif Pokemon == 68:
+		Name = "Machamp"
+		screen.blit(Machamp, (0, 175))
+	elif Pokemon == 69:
+		Name = "Bellsprout"
+		screen.blit(Bellsprout, (0, 175))
+	elif Pokemon == 70:
+		Name = "Weepinbell"
+		screen.blit(Weepinbell, (0, 175))
+	elif Pokemon == 71:
+		Name = "Victreebel"
+		screen.blit(Victreebel, (0, 175))
+	elif Pokemon == 72:
+		Name = "Tentacool"
+		screen.blit(Tentacool, (0, 175))
+	elif Pokemon == 73:
+		Name = "Tentacruel"
+		screen.blit(Tentacruel, (0, 175))
+	elif Pokemon == 74:
+		Name = "Geodude"
+		screen.blit(Geodude, (0, 175))
+	elif Pokemon == 75:
+		Name = "Gravler"
+		screen.blit(Gravler, (0, 175))
+	elif Pokemon == 76:
+		Name = "Golem"
+		screen.blit(Golem, (0, 175))
+	elif Pokemon == 77:
+		Name = "Pontya"
+		screen.blit(Pontya, (0, 175))
+	elif Pokemon == 78:
+		Name = "Rapidash"
+		screen.blit(Rapidash, (0, 175))
+	elif Pokemon == 79:
+		Name = "Slowpoke"
+		screen.blit(Slowpoke, (0, 175))
+	elif Pokemon == 80:
+		Name = "Slowbro"
+		screen.blit(Slowbro, (0, 175))
+	elif Pokemon == 81:
+		Name = "Magnemite"
+		screen.blit(Magnemite, (0, 175))
+	elif Pokemon == 82:
+		Name = "Magnetron"
+		screen.blit(Magnetron, (0, 175))
+	elif Pokemon == 83:
+		Name = "Farfetched"
+		screen.blit(Farfetched, (0, 175))
+	elif Pokemon == 84:
+		Name = "Doeduo"
+		screen.blit(Doduo, (0, 175))
+	elif Pokemon == 85:
+		Name = "Doderio"
+		screen.blit(Dodrio, (0, 175))
+	elif Pokemon == 86:
+		Name = "Seal"
+		screen.blit(Seal, (0, 175))
+	elif Pokemon == 87:
+		Name = "Dewgong"
+		screen.blit(Dewgong, (0, 175))
+	elif Pokemon == 88:
+		Name = "Griymer"
+		screen.blit(Grimer, (0, 175))
+	elif Pokemon == 89:
+		Name = "Muck"
+		screen.blit(Muk, (0, 175))
+	elif Pokemon == 90:
+		Name = "Shelder"
+		screen.blit(Shelder, (0, 175))
+	elif Pokemon == 91:
+		Name = "Cloyster"
+		screen.blit(Cloyster, (0, 175))
+	elif Pokemon == 92:
+		Name = "Gastly"
+		screen.blit(Gastly, (0, 175))
+	elif Pokemon == 93:
+		Name = "Haunter"
+		screen.blit(Haunter, (0, 175))
+	elif Pokemon == 94:
+		Name = "Gengar"
+		screen.blit(Gengar, (0, 175))
+	elif Pokemon == 95:
+		Name = "Onix"
+		screen.blit(Onix, (0, 175))
+	elif Pokemon == 96:
+		Name = "Drowzee"
+		screen.blit(Drowzee, (0, 175))
+	elif Pokemon == 97:
+		Name = "Hypno"
+		screen.blit(Hypno, (0, 175))
+	elif Pokemon == 98:
+		Name = "Krabby"
+		screen.blit(Krabby, (0, 175))
+	elif Pokemon == 99:
+		Name = "Kingler"
+		screen.blit(Kingler, (0, 175))
+	elif Pokemon == 100:
+		Name = "Voltorb"
+		screen.blit(Voltorb, (0, 175))
+	elif Pokemon == 101:
+		Name = "Electrobe"
+		screen.blit(Electrobe, (0, 175))
+	elif Pokemon == 102:
+		Name = "Exeggcute"
+		screen.blit(Exeggcute, (0, 175))
+	elif Pokemon == 103:
+		Name = "Exeggcuteor"
+		screen.blit(Exeggutor, (0, 175))
+	elif Pokemon == 104:
+		Name = "Cuebone"
+		screen.blit(Cubone, (0, 175))
+	elif Pokemon == 105:
+		Name = "Marowak"
+		screen.blit(Marowak, (0, 175))
+	elif Pokemon == 106:
+		Name = "Hitmonlee"
+		screen.blit(Hitmonlee, (0, 175))
+	elif Pokemon == 107:
+		Name = "Hitmonechan"
+		screen.blit(Hitmonchan, (0, 175))
+	elif Pokemon == 108:
+		Name = "Lickytongue"
+		screen.blit(Lickitung, (0, 175))
+	elif Pokemon == 109:
+		Name = "Koffing"
+		screen.blit(Koffing, (0, 175))
+	elif Pokemon == 110:
+		Name = "Weezing"
+		screen.blit(Weezing, (0, 175))
+	elif Pokemon == 111:
+		Name = "Rhiydon"
+		screen.blit(Rhydon, (0, 175))
+	elif Pokemon == 112:
+		Name = "Rhyhorn"
+		screen.blit(Rhyhorn, (0, 175))
+	elif Pokemon == 113:
+		Name = "Chansey"
+		screen.blit(Chansey, (0, 175))
+	elif Pokemon == 114:
+		Name = "Tangela"
+		screen.blit(Tangela, (0, 175))
+	elif Pokemon == 115:
+		Name = "Kanghaskan"
+		screen.blit(Kangaskhan, (0, 175))
+	elif Pokemon == 116:
+		Name = "Horsea"
+		screen.blit(Horsea, (0, 175))
+	elif Pokemon == 117:
+		Name = "Sedra"
+		screen.blit(Sedra, (0, 175))
+	elif Pokemon == 118:
+		Name = "Goldeen"
+		screen.blit(Goldeen, (0, 175))
+	elif Pokemon == 119:
+		Name = "Seaking"
+		screen.blit(Seaking, (0, 175))
+	elif Pokemon == 120:
+		Name = "Staryu"
+		screen.blit(Staryu, (0, 175))
+	elif Pokemon == 121:
+		Name = "Starmie"
+		screen.blit(Starmie, (0, 175))
+	elif Pokemon == 122:
+		Name = "Mister Mime"
+		screen.blit(Mr_Mime, (0, 175))
+	elif Pokemon == 123:
+		Name = "Scyther"
+		screen.blit(Scyther, (0, 175))
+	elif Pokemon == 124:
+		Name = "Jynx"
+		screen.blit(Jynx, (0, 175))
+	elif Pokemon == 125:
+		Name = "Electabuzz"
+		screen.blit(Electabuzz, (0, 175))
+	elif Pokemon == 126:
+		Name = "Magmar"
+		screen.blit(Magmar, (0, 175))
+	elif Pokemon == 127:
+		Name = "Pinsir"
+		screen.blit(Pinsir, (0, 175))
+	elif Pokemon == 128:
+		Name = "Tauros"
+		screen.blit(Tauros, (0, 175))
+	elif Pokemon == 129:
+		Name = "Magykarp"
+		screen.blit(Magikarp, (0, 175))
+	elif Pokemon == 130:
+		Name = "Garyadoose"
+		screen.blit(Garyados, (0, 175))
+	elif Pokemon == 131:
+		Name = "Lapras"
+		screen.blit(Lapras, (0, 175))
+	elif Pokemon == 132:
+		Name = "Ditto"
+		screen.blit(Ditto, (0, 175))
+	elif Pokemon == 134:
+		Name = "Vaporeon"
+		screen.blit(Vaporeon, (0, 175))
+	elif Pokemon == 135:
+		Name = "Jolteon"
+		screen.blit(Jolteon, (0, 175))
+	elif Pokemon == 136:
+		Name = "Flareon"
+		screen.blit(Flareon, (0, 175))
+	elif Pokemon == 137:
+		Name = "Porygon"
+		screen.blit(Porygon, (0, 175))
+	elif Pokemon == 138:
+		Name = Omanyte
+		screen.blit(Omanyte, (0, 175))
+	elif Pokemon == 139:
+		Name = "Omastar"
+		screen.blit(Omastar, (0, 175))
+	elif Pokemon == 140:
+		Name = "Kabuto"
+		screen.blit(Kabuto, (0, 175))
+	elif Pokemon == 141:
+		Name = "Kabutops"
+		screen.blit(Kabutops, (0, 175))
+	elif Pokemon == 142:
+		Name = "Areodactyl"
+		screen.blit(Areodactyl, (0, 175))
+	elif Pokemon == 143:
+		Name = "Snorelax"
+		screen.blit(Snorlax, (0, 175))
+	elif Pokemon == 144:
+		Name = "Articunio"
+		screen.blit(Articuno, (0, 175))
+	elif Pokemon == 145:
+		Name = "Zapdoes"
+		screen.blit(Zapdos, (0, 175))
+	elif Pokemon == 146:
+		Name = "Moltress"
+		screen.blit(Moltress, (0, 175))
+	elif Pokemon == 147:
+		Name = "Dratini"
+		screen.blit(Dratini, (0, 175))
+	elif Pokemon == 148:
+		screen.blit(Dragonair, (0, 175))
+		Name = "Dragonair"
+	elif Pokemon == 149:
+		screen.blit(Dragonite, (0, 175))
+		Name = "Dragonite"
+	elif Pokemon == 150:
+		screen.blit(Mewtwo, (0, 175))
+		Name = "Mew2"
+	elif Pokemon == 151:
+		screen.blit(Mew, (0, 175))
+		Name = "Mew"
+
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			run = False
